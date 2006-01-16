@@ -1,0 +1,19 @@
+--- qfaktury/share/qfaktury/icons/qfaktury.desktop~	2006-01-16 01:07:09.000000000 +0100
++++ qfaktury/share/qfaktury/icons/qfaktury.desktop	2006-01-16 01:07:17.000000000 +0100
+@@ -2,11 +2,12 @@
+ Encoding=UTF-8
+ Version=0.1
+ Type=Application
+-Exec=/usr/bin/qfaktury
++Exec=qfaktury
+ TryExec=
+-Icon=/usr/share/qfaktury/icons/qfaktury_48.png
+-X-GNOME-DocPath=
++Icon=qfaktury.png
+ Terminal=false
++Name=QFaktury
++Comment=Invoice system
+ Name[pl_PL]=QFaktury
+-GenericName[pl_PL]=qfaktury
+ Comment[pl_PL]=Program do drukowania faktur
++Categories=Qt;Office;
