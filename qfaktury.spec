@@ -5,12 +5,12 @@ Summary:	Free software for creating, managing, and printing invoices
 Summary(pl):	Darmowy i wszechstronny system fakturuj±cy
 Name:		qfaktury
 Version:	0.0.2
-Release:	0.%{_pre}.1
+Release:	0.%{_pre}.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.e-linux.pl/modules/qfaktury/%{name}-%{version}%{_pre}.tar.gz
 # Source0-md5:	e4a8b18d4a926053c8fb8689ddfcbda5
-#Patch0:		%{name}-desktop.patch
+Patch0:		%{name}-desktop.patch
 URL:		http://www.e-linux.pl/modules/qfaktury/index.php
 BuildRequires:	qmake
 BuildRequires:	qt-devel >= 3.3
@@ -34,7 +34,7 @@ siê z programem e-Przelewy.
 
 %prep
 %setup -q -n %{name}
-#%patch -p1
+%patch -p1
 
 %build
 export QTDIR=/usr
@@ -45,10 +45,18 @@ qmake
 rm -rf $RPM_BUILD_ROOT
 # create directories if necessary
 
-%{__make} install INSTALL_ROOT=$RPM_BUILD_ROOT QTDIR=/usr
+rm -f install install.sh
+
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+install share/qfaktury/icons/qfaktury_48.png $RPM_BUILD_ROOT%{_pixmapsdir}/qfaktury.png
+
+%{__make} install \
+	INSTALL_ROOT=$RPM_BUILD_ROOT \
+	QTDIR=/usr
+
 
 %clean
-#rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
@@ -56,3 +64,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/qfaktury
 %{_datadir}/qfaktury
 %{_desktopdir}/qfaktury.desktop
+%{_pixmapsdir}/qfaktury.png
