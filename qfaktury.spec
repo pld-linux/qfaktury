@@ -1,15 +1,15 @@
 
-%define		_pre		_pre2
+%define		_pre		_pre3
 
 Summary:	Free software for creating, managing, and printing invoices
 Summary(pl):	Darmowy i wszechstronny system fakturuj±cy
 Name:		qfaktury
 Version:	0.0.2
-Release:	0.%{_pre}.2
+Release:	0.%{_pre}.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.e-linux.pl/modules/qfaktury/%{name}-%{version}%{_pre}.tar.gz
-# Source0-md5:	e4a8b18d4a926053c8fb8689ddfcbda5
+# Source0-md5:	b3934ccf47ea8d7f4a9c8e0e52757330
 Patch0:		%{name}-desktop.patch
 URL:		http://www.e-linux.pl/modules/qfaktury/index.php
 BuildRequires:	qmake
