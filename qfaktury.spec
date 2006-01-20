@@ -27,14 +27,13 @@ without small modifications.
 QFaktury to ca³kowicie darmowy i wszechstronny system fakturuj±cy
 pracuj±cy pod kontrol± systemu Linux. Umo¿liwia on drukowanie faktur,
 faktur pro forma i korekt, a tak¿e ³atwe zarz±dzanie fakturami,
-towarami i baza kontrahentów. Za pomoc± programu QFaktur mo¿liwe jest
+towarami i baza kontrahentów. Za pomoc± programu QFaktury mo¿liwe jest
 równie¿ przygotowanie faktury w formacie PDF czy XML. System integruje
 siê z programem e-Przelewy.
 
-
 %prep
 %setup -q -n %{name}
-%patch -p1
+%patch0 -p1
 
 %build
 export QTDIR=/usr
@@ -43,7 +42,6 @@ qmake
 
 %install
 rm -rf $RPM_BUILD_ROOT
-# create directories if necessary
 
 rm -f install install.sh
 
@@ -53,7 +51,6 @@ install share/qfaktury/icons/qfaktury_48.png $RPM_BUILD_ROOT%{_pixmapsdir}/qfakt
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	QTDIR=/usr
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
