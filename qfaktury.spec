@@ -1,5 +1,5 @@
 
-%define		_pre		pre1
+%define		_pre		pre2
 
 Summary:	Free software for creating, managing, and printing invoices
 Summary(pl):	Darmowy i wszechstronny system fakturuj±cy
@@ -9,7 +9,7 @@ Release:	1.%{_pre}.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.e-linux.pl/modules/qfaktury/%{name}_%{version}-%{_pre}.tar.gz
-# Source0-md5:	f3e38f92ec3a4c1d31cd0dfd6a0554f5
+# Source0-md5:	3fc9676949e20e18c176e0523d7b09d6
 Patch0:		%{name}-desktop.patch
 URL:		http://www.e-linux.pl/modules/qfaktury/index.php
 BuildRequires:	qmake
@@ -37,6 +37,7 @@ siê z programem e-Przelewy.
 
 %build
 export QTDIR=/usr
+./configure 
 qmake
 %{__make} QTDIR=/usr
 
