@@ -2,7 +2,7 @@
 %define		_pre		rc1
 %define		qversion	0_1
 Summary:	Free software for creating, managing, and printing invoices
-Summary(pl):	Darmowy i wszechstronny system fakturuj±cy
+Summary(pl.UTF-8):   Darmowy i wszechstronny system fakturujÄ…cy
 Name:		qfaktury
 Version:	0.1
 Release:	1.%{_pre}.1
@@ -24,13 +24,13 @@ database for product information. QFaktury was created for a Polish
 financial system, but it can be useful in other countries with or
 without small modifications.
 
-%description -l pl
-QFaktury to ca³kowicie darmowy i wszechstronny system fakturuj±cy
-pracuj±cy pod kontrol± systemu Linux. Umo¿liwia on drukowanie faktur,
-faktur pro forma i korekt, a tak¿e ³atwe zarz±dzanie fakturami,
-towarami i baza kontrahentów. Za pomoc± programu QFaktury mo¿liwe jest
-równie¿ przygotowanie faktury w formacie PDF czy XML. System integruje
-siê z programem e-Przelewy.
+%description -l pl.UTF-8
+QFaktury to caÅ‚kowicie darmowy i wszechstronny system fakturujÄ…cy
+pracujÄ…cy pod kontrolÄ… systemu Linux. UmoÅ¼liwia on drukowanie faktur,
+faktur pro forma i korekt, a takÅ¼e Å‚atwe zarzÄ…dzanie fakturami,
+towarami i baza kontrahentÃ³w. Za pomocÄ… programu QFaktury moÅ¼liwe jest
+rÃ³wnieÅ¼ przygotowanie faktury w formacie PDF czy XML. System integruje
+siÄ™ z programem e-Przelewy.
 
 %prep
 %setup -q -n %{name}
