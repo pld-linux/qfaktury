@@ -2,7 +2,7 @@
 %define		_pre		rc1
 %define		qversion	0_1
 Summary:	Free software for creating, managing, and printing invoices
-Summary(pl.UTF-8):   Darmowy i wszechstronny system fakturujący
+Summary(pl.UTF-8):	Darmowy i wszechstronny system fakturujący
 Name:		qfaktury
 Version:	0.1
 Release:	1.%{_pre}.1
