@@ -1,15 +1,15 @@
---- qfaktury/share/applications/qfaktury.desktop.orig	2006-01-16 12:59:53.000000000 +0100
-+++ qfaktury/share/applications/qfaktury.desktop	2006-01-16 22:24:57.000000000 +0100
+--- qfaktury/share/applications/qfaktury.desktop	2007-03-20 00:47:05.000000000 +0000
++++ qfaktury.orig/share/applications/qfaktury.desktop	2007-03-20 00:47:51.000000000 +0000
 @@ -5,10 +5,9 @@
  Type=Application
  InitialPreference=2
  Categories=Application;Office;X-Red-Hat-Base;X-SuSE-Core-Office;
 -Exec=/usr/bin/qfaktury
 +Exec=qfaktury
- Name[pl_PL]=QFaktury
+ Name[pl_PL]=QFaktury_GPL
 -GenericName[pl_PL]=qfaktury
 -Icon=/usr/share/qfaktury/icons/qfaktury_48.png
 +Icon=qfaktury.png
- Comment[pl_PL]=Program do drukowania faktur
- Name=QFaktury
+ Comment[pl_PL]=Program do drukowania QFaktury_GPL
+ Name=QFaktury_GPL
  StartupNotify=true
