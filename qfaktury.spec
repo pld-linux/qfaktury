@@ -13,7 +13,7 @@ Source0:	http://www.e-linux.pl/download/task,doc_download/gid,15/%{name}
 Patch0:		%{name}-desktop.patch
 URL:		http://www.e-linux.pl
 BuildRequires:	qmake
-BuildRequires:	qt-devel >= 3.3
+BuildRequires:	qt-devel >= 6:3.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
