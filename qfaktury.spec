@@ -11,7 +11,7 @@ Group:		X11/Applications
 Source0:	http://www.e-linux.pl/download/task,doc_download/gid,15/%{name}
 # Source0-md5:	13fed849ec20c66cab5e22aa6f9e783e
 Patch0:		%{name}-desktop.patch
-URL:		http://www.e-linux.pl
+URL:		http://www.e-linux.pl/
 BuildRequires:	qmake
 BuildRequires:	qt-devel >= 6:3.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -46,15 +46,15 @@ qmake
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 rm -f install install.sh
-
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install share/qfaktury/icons/qfaktury_48.png $RPM_BUILD_ROOT%{_pixmapsdir}/qfaktury.png
 
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	QTDIR=/usr
+
+install share/qfaktury/icons/qfaktury_48.png $RPM_BUILD_ROOT%{_pixmapsdir}/qfaktury.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
