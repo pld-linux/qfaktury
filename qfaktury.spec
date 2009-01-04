@@ -5,7 +5,7 @@ Summary:	Free software for creating, managing, and printing invoices
 Summary(pl.UTF-8):	Darmowy i wszechstronny system fakturujący
 Name:		qfaktury
 Version:	0.1a
-Release:	1.%{_pre}.3
+Release:	1.%{_pre}.4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.e-linux.pl/download/task,doc_download/gid,15/%{name}
@@ -37,6 +37,8 @@ się z programem e-Przelewy.
 
 # remove CVS control files
 find -name cvs -print0 | xargs -0 rm -rf
+# remove prebuilt i386 binaries
+rm -fr .obj/
 
 %build
 export QTDIR=/usr
