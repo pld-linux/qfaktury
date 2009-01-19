@@ -1,19 +1,17 @@
-
-%define		_pre		rc1
-%define		qversion	0_1a
 Summary:	Free software for creating, managing, and printing invoices
 Summary(pl.UTF-8):	Darmowy i wszechstronny system fakturujący
 Name:		qfaktury
-Version:	0.1a
-Release:	1.%{_pre}.4
+Version:	0.5.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://www.e-linux.pl/download/task,doc_download/gid,15/%{name}
-# Source0-md5:	13fed849ec20c66cab5e22aa6f9e783e
+Source0:	http://dl.sourceforge.net/qfaktury/%{name}-%{version}-Source.tar.gz
+# Source0-md5:	1ae6a9826c51fd6597500e6f39cdc7fd
 Patch0:		%{name}-desktop.patch
-URL:		http://www.e-linux.pl/
-BuildRequires:	qmake
-BuildRequires:	qt-devel >= 6:3.3
+URL:		http://qfaktury.sourceforge.net/
+BuildRequires:	cmake
+BuildRequires:	Qt3Support-devel
+BuildRequires:	QtXml-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,39 +30,35 @@ również przygotowanie faktury w formacie PDF czy XML. System integruje
 się z programem e-Przelewy.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1
-
-# remove CVS control files
-find -name cvs -print0 | xargs -0 rm -rf
-# remove prebuilt i386 binaries
-rm -fr .obj/
+%setup -q -n %{name}-%{version}-Source
+#%patch0 -p1
 
 %build
-export QTDIR=/usr
-./configure 
-qmake
-%{__make} QTDIR=/usr
+rm -rf build
+mkdir build
+cd build
+export CXXFLAGS="%{rpmcxxflags}"
+%cmake .. \
+	-DCMAKE_INSTALL_PREFIX="%{_prefix}" \
+	%{?debug:-DCMAKE_BUILD_TYPE="Debug"}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 
-rm -f install install.sh
+%{__make} -C build install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT \
-	QTDIR=/usr
-
-install share/qfaktury/icons/qfaktury_48.png $RPM_BUILD_ROOT%{_pixmapsdir}/qfaktury.png
+# it's not used anyway...
+cp -r share/qfaktury $RPM_BUILD_ROOT%{_datadir}
+install share/qfaktury/icons/qfaktury.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc readme todo faq
+%doc ReadMe.txt
 %attr(755,root,root) %{_bindir}/qfaktury
 %{_datadir}/qfaktury
 %{_desktopdir}/qfaktury.desktop
-%{_pixmapsdir}/qfaktury*.png
