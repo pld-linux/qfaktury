@@ -1,12 +1,12 @@
 Summary:	Free software for creating, managing, and printing invoices
 Summary(pl.UTF-8):	Darmowy i wszechstronny system fakturujący
 Name:		qfaktury
-Version:	0.5.0
-Release:	1
+Version:	0.6.0.1
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/qfaktury/%{name}-%{version}-Source.tar.gz
-# Source0-md5:	1ae6a9826c51fd6597500e6f39cdc7fd
+Source0:	http://dl.sourceforge.net/sourceforge/qfaktury/%{name}-%{version}.tar.gz
+# Source0-md5:	284e1e3d93be1a351411abed3d3c1cd7
 Patch0:		%{name}-desktop.patch
 URL:		http://qfaktury.sourceforge.net/
 BuildRequires:	cmake
@@ -30,7 +30,8 @@ również przygotowanie faktury w formacie PDF czy XML. System integruje
 się z programem e-Przelewy.
 
 %prep
-%setup -q -n %{name}-%{version}-Source
+%setup -q 
+#-n %{name}-%{version}-Source
 #%patch0 -p1
 
 %build
