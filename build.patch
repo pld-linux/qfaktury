@@ -1,0 +1,23 @@
+--- qfaktury-0.6.2/qfaktury.pro~	2009-04-11 20:42:15.000000000 +0200
++++ qfaktury-0.6.2/qfaktury.pro	2009-09-08 10:47:30.976436534 +0200
+@@ -66,15 +66,15 @@ RESOURCES += qfaktury.qrc
+ TRANSLATIONS += qfaktury_de.ts \
+     qfaktury_en.ts \
+     qfaktury_pl.ts
+-pixmaps.path = /usr/local/share/qfaktury/icons
++pixmaps.path = /usr/share/qfaktury/icons
+ pixmaps.files = icons/*.png
+-css.path = /usr/local/share/qfaktury/templates
++css.path = /usr/share/qfaktury/templates
+ css.files = templates/*.css
+-languages.path = /usr/local/share/qfaktury
++languages.path = /usr/share/qfaktury
+ languages.files = *.qm
+-desktop.path = /usr/local/share/applications
++desktop.path = /usr/share/applications
+ desktop.files = *.desktop
+-target.path = /usr/local/bin
++target.path = /usr/bin
+ INSTALLS += target \
+     pixmaps \
+     css \
