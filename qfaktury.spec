@@ -1,17 +1,18 @@
 Summary:	Free software for creating, managing, and printing invoices
 Summary(pl.UTF-8):	Darmowy i wszechstronny system fakturujący
 Name:		qfaktury
-Version:	0.6.0.1
+Version:	0.6.2
 Release:	0.1
-License:	GPL
+License:	GPL v3
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/sourceforge/qfaktury/%{name}-%{version}.tar.gz
-# Source0-md5:	284e1e3d93be1a351411abed3d3c1cd7
+# Source0-md5:	047f8239bf6187c9da9b69f90f284c15
 Patch0:		%{name}-desktop.patch
+Patch1:		build.patch
 URL:		http://qfaktury.sourceforge.net/
-BuildRequires:	cmake
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRequires:	Qt3Support-devel
-BuildRequires:	QtXml-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,28 +32,20 @@ się z programem e-Przelewy.
 
 %prep
 %setup -q 
-#-n %{name}-%{version}-Source
 #%patch0 -p1
+%patch1 -p1
 
 %build
-rm -rf build
-mkdir build
-cd build
-export CXXFLAGS="%{rpmcxxflags}"
-%cmake .. \
-	-DCMAKE_INSTALL_PREFIX="%{_prefix}" \
-	%{?debug:-DCMAKE_BUILD_TYPE="Debug"}
+%{__make} \
+	QMAKE=/usr/bin/qmake-qt4 \
+	CXXFLAGS="%{rpmcxxflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 
-%{__make} -C build install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-# it's not used anyway...
-cp -r share/qfaktury $RPM_BUILD_ROOT%{_datadir}
-install share/qfaktury/icons/qfaktury.desktop $RPM_BUILD_ROOT%{_desktopdir}
+%{__make} install \
+	INSTALL_ROOT=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -62,4 +55,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc ReadMe.txt
 %attr(755,root,root) %{_bindir}/qfaktury
 %{_datadir}/qfaktury
-%{_desktopdir}/qfaktury.desktop
+%{_desktopdir}/QFaktury.desktop
