@@ -2,7 +2,7 @@ Summary:	Free software for creating, managing, and printing invoices
 Summary(pl.UTF-8):	Darmowy i wszechstronny system fakturujący
 Name:		qfaktury
 Version:	0.6.2
-Release:	0.1
+Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/sourceforge/qfaktury/%{name}-%{version}.tar.gz
@@ -34,6 +34,7 @@ się z programem e-Przelewy.
 %setup -q 
 #%patch0 -p1
 %patch1 -p1
+sed -i -e 's|/usr/lib/qt4/mkspecs|/usr/share/qt4/mkspecs|g' Makefile
 
 %build
 %{__make} \
