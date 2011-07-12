@@ -1,0 +1,14 @@
+--- Faktura.cpp	2009-04-12 16:52:02.000000000 +0200
++++ Faktura.cpp	2011-03-10 16:29:00.473481810 +0100
+@@ -288,8 +288,10 @@
+ 	}
+ 	prefix = sett().value("prefix").toString();
+ 
++	//adrav: first delete the prefix, then split
++	tmp.remove(prefix);
+ 	QStringList one1 = tmp.split("/");
+-	one1[0] = one1[0].remove(prefix);
++	//one1[0] = one1[0].remove(prefix);
+ 
+ 	int nr = one1[0].toInt() + 1;
+ 	lastInvoice = prefix + numbersCount(nr,
