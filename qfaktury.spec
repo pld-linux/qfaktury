@@ -34,7 +34,7 @@ się z programem e-Przelewy.
 
 %prep
 %setup -q 
-#%patch0 -p1
+#%%patch0 -p1
 %patch -P1 -p1
 %patch -P2 -p0
 sed -i -e 's|/usr/lib/qt4/mkspecs|/usr/share/qt4/mkspecs|g' Makefile
